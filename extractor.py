@@ -2,6 +2,9 @@ from essentia_engine import EssentiaEngine
 import numpy as np
 from essentia.standard import MonoLoader, FrameGenerator, PoolAggregator
 import essentia
+import math
+
+debug = True 
 
 class Extractor:
     """
@@ -10,12 +13,12 @@ class Extractor:
     """
 
     # initialize
-    def __init__(self):
+    def __init__(self, dur, sr, fs, hs):
 
-        self.window_duration = 1.5 # analysis window length in seconds
-        self.sample_rate = 22050  # sample rate
-        self.frame_size = 2048  # samples in each frame
-        self.hop_size = 1024
+        self.window_duration = dur # analysis window length in seconds
+        self.sample_rate = sr  # sample rate
+        self.frame_size = fs  # samples in each frame
+        self.hop_size = hs
         self.window_size = int(self.sample_rate * self.window_duration)
         self.adjusted_window = (self.window_size // self.frame_size) * self.frame_size
 
@@ -52,13 +55,13 @@ class Extractor:
 
         # number frames in a window
         numFrames_window = int(self.window_duration / frame_duration)
-
-        print(numFrames_window, ' frames in a window')
-        print('frame duration: ', frame_duration)
-        print('audio len: ', len(audio))
-        print('number frames total: ', len(audio)/self.frame_size)
-        print('window size: ', self.window_size)
-        print('frame adjusted window size: ', self.adjusted_window)
+        if debug:
+            print(numFrames_window, ' frames in a window')
+            print('frame duration: ', frame_duration)
+            print('audio len: ', len(audio))
+            print('number frames total: ', len(audio)/self.frame_size)
+            print('window size: ', self.window_size)
+            print('frame adjusted window size: ', self.adjusted_window)
 
         # translate type naming convention from csv to database
 
