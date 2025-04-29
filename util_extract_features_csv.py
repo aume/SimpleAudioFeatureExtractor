@@ -11,8 +11,6 @@ frame_size = 512
 hop_size = math.floor(frame_size/2)
 sample_rate = 22500
 audio_folder = './mp3corpus'
-out_folder = 'mp3Output'
-
 
 
 def main():
