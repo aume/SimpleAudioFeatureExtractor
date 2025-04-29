@@ -13,7 +13,11 @@ class EssentiaEngine:
 		self.hopSize = hopSize
 
 		# algorithms
-		self.extractor = engine.Extractor(lowLevelFrameSize = frameSize, lowLevelHopSize = hopSize, dynamicsFrameSize = frameSize, dynamicsHopSize = hopSize)
+		# https://essentia.upf.edu/reference/std_Extractor.html
+		self.extractor = engine.Extractor(lowLevel=True, dynamics=False, rhythm=False, 
+									highLevel=False, midLevel=False, tuning=False, 
+									lowLevelFrameSize = frameSize, lowLevelHopSize = hopSize, 
+									dynamicsFrameSize = frameSize, dynamicsHopSize = hopSize)
 		print('engine start')
 
 
