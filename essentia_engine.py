@@ -19,6 +19,3 @@ class EssentiaEngine:
 									lowLevelFrameSize = frameSize, lowLevelHopSize = hopSize, 
 									dynamicsFrameSize = frameSize, dynamicsHopSize = hopSize)
 		print('engine start')
-
-
-	

@@ -3,14 +3,13 @@ import os
 import csv
 import math
 """
-This program is an example implimentation of the segmenter. 
-We pull segment information then create a label file for audacity to visualize the background/foreground assignments.
+This program is an example implimentation of the extractor 
+and writes out a csv file with named with the parameters below
 """
 
-window_duration = 1
 frame_size = 512
 hop_size = math.floor(frame_size/2)
-sample_rate = 44100
+sample_rate = 22500
 audio_folder = './mp3corpus'
 out_folder = 'mp3Output'
 
