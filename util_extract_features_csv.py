@@ -26,18 +26,15 @@ def main():
         windowData['file_name'] = filename
         print(filename)
         fname = 'features_'+str(sample_rate)+'Hz_'+str(frame_size)+'.csv'
-        if first_time:
-            with open(fname, 'w', newline='') as csvfile:
-                fieldnames = windowData.keys()
-                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        with open(fname, 'w', newline='') as csvfile:
+            fieldnames = windowData.keys()
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            if first_time:
                 writer.writeheader()
-                writer.writerow(windowData)
-            first_time = False
-        else:
-            with open(fname, 'a', newline='') as csvfile:
-                fieldnames = windowData.keys()
-                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-                writer.writerow(windowData)
+                first_time = False
+            writer.writerow(windowData)
+            
         windowData = None
 
 
