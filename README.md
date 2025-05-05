@@ -9,7 +9,7 @@ A folder name ./mp3corpus or whatever you set
 ## Dependancies
 Essentia - an open-source library for tools for audio and music analysis, description and synthesis. https://essentia.upf.edu/ 
 
-Scikit-learn - a free software machine learning library for the Python programming language.
+numpy
 
 For full requirements, check *requirements.txt*.
 
